@@ -1,4 +1,39 @@
-<h1>Welcome! My First Angular App.</h1>
+
+<!-- String interpolation -->
+<h1>Welcome {{ Name }}  having Roll no. {{ Roll_no }} to your First Angular App !</h1>
 <courses></courses>
 <app-sample></app-sample>
 <app-course></app-course>
+
+<!-- Property binding -->
+<h2>ServerStatus: {{ serverStatus }}</h2>
+<button [disabled]="buttonState"> check Property Binding</button>
+<button  (click)="toggleserverStatus()">Toggle server status</button>
+<br><br><br>
+
+<!-- Two way Binding -->
+<input type="text" placeholder="name" [(ngModel)]="Name" >
+<p> {{Name}}</p>
+
+<!-- Directives -->
+
+<p *ngIf="flag; else elseblock">Flag is true</p>
+
+<ng-template #elseblock>
+    <p> Flag is false</p>
+</ng-template>
+<button (click)=toggleFlag()>Toggle Flag</button>
+
+
+
+<h1>Students List</h1>
+
+<input type="text" placeholder="add new name" [(ngModel)]="newName">
+<button (click)="addNewName()">Add New Student</button>
+
+<ol>
+    <li *ngFor="let name of studentNames">{{name}}</li>
+</ol>
+
+
+<router-outlet></router-outlet>

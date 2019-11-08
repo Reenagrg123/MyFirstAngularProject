@@ -7,27 +7,20 @@ import { CoursesComponent } from './courses.component';
 import { CoursesService } from './courses.service';
 import { SampleComponent } from './MyComponent/sample.component';
 import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
+import{ RouterModule,Routes} from '@angular/router';
 
+const appRoutes:Routes=[
+    {path:'sample',component:SampleComponent},
+    {path:'courses',component:CoursesComponent}
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CourseComponent,
-    CoursesComponent,
-    SampleComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule
-    
-  ],
-  providers: [
-    CoursesService
-  ],
-  bootstrap: [AppComponent],
-  
- 
+    imports:[
+        RouterModule.forRoot(appRoutes)
+    ],
+    exports:[RouterModule]
 })
-export class AppModule { }
+
+export class AppRoutingModule{
+
+}
